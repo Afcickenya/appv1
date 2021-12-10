@@ -13,4 +13,8 @@ class DonationController extends Controller
     {
         return view('donate.index');
     }
+    public function show()
+    {
+        return view('donation.show');
+    }
 }

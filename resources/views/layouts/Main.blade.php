@@ -14,7 +14,7 @@
     <meta name="description" content="Construction & Building HTML Template">
     <meta name="author" content="AlexaTheme">
     <title>{{ config('app.name', 'Actionforchildren') }}</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/img/favicon.png')}}">
 
     <link rel="stylesheet" href="{{asset('frontend/css/fontawesome.min.css')}}">
 
@@ -68,7 +68,7 @@
     <div class="site-preloader-wrap">
         <div class="spinner"></div>
     </div>
-    <header class="header">
+    <header class="header" >
         <div class="primary-header">
             <div class="container">
                 <div class="primary-header-inner">
@@ -111,16 +111,16 @@
                             </li>
                             <li><a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="blog-grid.html">Blog Grid</a></li>
-                                    <li><a href="blog-classic.html">Blog Classic</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="/Blog">Blog </a></li>
+                                   
                                 </ul>
                             </li>
                             <li><a href="/Contact">Contact</a></li>
+                            <li><a href="/login">Staff</a></li>
                         </ul>
                     </div>
                     <div class="header-right">
-                        <a class="menu-btn" href="/Donate">Donate</a>
+                        <a class="menu-btn" href="/Donate/show">Donate</a>
 
                         <div class="mobile-menu-icon">
                             <div class="burger-menu">
@@ -138,7 +138,7 @@
 
 
 
-    <section class="widget-section padding">
+    <section class="widget-section padding" style="background-color: #0096FF; color:#fff;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-6 sm-padding">
@@ -150,6 +150,11 @@
                 <div class="col-lg-2 col-sm-6 sm-padding">
                     <div class="widget-content">
                         <h4>Company</h4>
+                        <style>
+                            .widget-links a{
+                                   color: #fff !important;
+                            }
+                        </style>
                         <ul class="widget-links">
                             <li><a href="/About">About Us</a></li>
                             <li><a href="/Working-children-center">Centers</a></li>

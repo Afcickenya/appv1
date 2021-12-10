@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -14,7 +15,10 @@ class DashboardController extends Controller
        }elseif(Auth::user()->hasRole('blogwriter')){
             return view('blogwriterdash');
        }elseif(Auth::user()->hasRole('admin')){
-        return view('dashboard');
+         $users=User::get();
+        return view('dashboard',[
+             'users'=>$users,
+        ]);
    }
    }
 

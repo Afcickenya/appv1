@@ -25,26 +25,28 @@
             <div class="col-md-6">
                 <div class="contact-form">
                     <div class="row">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" action="/volunteer/create" method="post">
                             <div class="row">
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." >
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="phone/contact " required="">
+                                    <input name="phone" type="text" class="form-control" id="phone" placeholder="phone/contact " >
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." >
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">
                                   <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="descriptive mess on pic up location" required=""></textarea>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="descriptive mess on pic up location" >
+                               
+                                    </textarea>
                                   </fieldset>
                                 </div>
                                 <div class="col-md-12">

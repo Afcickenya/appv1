@@ -47,7 +47,7 @@
                         <li>- €20 will provide a vulnerable family (5 members) with a food package to last a week</li>
                     </ul>
                     <div class="primary-button">
-                        <a href="/donor/create">Donate Here</a>
+                        <a href="/donor/show">Donate Here</a>
                     </div>
                 </div>
             </div>
@@ -148,22 +148,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">

@@ -6,6 +6,11 @@
         <div class="contact-wrap d-flex align-items-center row">
             <div class="col-md-6 padding-15">
                 <div class="contact-info">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{session()->get('message')}}
+                        </div>
+                    @endif
                     <h2>Why volunteer</h2>
                     <p>
                         
@@ -25,24 +30,53 @@ Volunteering can have a real and valuable positive affect on people, communities
             </div>
             <div class="col-md-6 padding-15">
                 <div class="contact-form">
-                    <form action="http://html.dynamiclayers.net/at/indico/contact.php" method="post" id="ajax_form" class="form-horizontal">
+                    <form action="/volunteer/create" method="post" id="ajax_form" class="form-horizontal">
+                        @csrf
                         <div class="form-group colum-row row">
                             <div class="col-sm-6">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="{{old('name')?? 'Enter full name'}}" >
                             </div>
+                            @error('name')
+                                <p class="text-danger">
+                                    {{$message}}
+                                </p>
+                            @enderror
                             <div class="col-sm-6">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Phone" required>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="{{old('name')?? 'Enter email'}}" >
                             </div>
+                            @error('email')
+                            <p class="text-danger">
+                                {{$message}}
+                            </p>
+                        @enderror
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <input type="text" id="phone" name="phone" class="form-control" placeholder="{{old('phone')?? 'Enter contact Number'}}" >
+                                @error('phone')
+                                <p class="text-danger">
+                                    {{$message}}
+                                </p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <textarea id="message" name="body" cols="30" rows="5" class="form-control message" placeholder="  {{old('body')?? 'Enter detail information about yourself'}}"  >
+                                  
+                                </textarea>
+                            </div>
+                            @error('body')
+                                <p class="text-danger">
+                                    {{$message}}
+                                </p>
+                            @enderror
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <textarea id="message" name="message" cols="30" rows="5" class="form-control message" placeholder="Describe about your self include email" required></textarea>
+                                <button id="submit" class="default-btn" type="submit">Volunteer now</button>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <button id="submit" class="default-btn" type="submit">Volunteer</button>
-                            </div>
+                           
                         </div>
                         <div id="form-messages" class="alert" role="alert"></div>
                     </form>

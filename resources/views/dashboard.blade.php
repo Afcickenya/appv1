@@ -1,17 +1,36 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard for admin') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in as an admin!
+@extends('layouts.admin')
+@section('content')
+     <!-- Latest Users -->
+     <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Staff Members</h3>
+            @if (session()->has('message'))
+                <div class=" alert alert-success">
+                    {{session()->get('message')}}
                 </div>
-            </div>
+            @endif
+        </div>
+        <div class="panel-body">
+           <h4><a href="/addstaff" class="btn btn-primary">Add Staff</a></h4> 
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th >Action</th>
+                    
+                </tr>
+               
+                @foreach ($users as $user)
+                 <tr>
+                  <td>{{$user->name}}</td>
+                  <td>{{$user->email}}</td>
+                  <td><a href="" class="btn btn-danger">Delete Staff</a></td>
+                </tr>
+                @endforeach
+                
+              
+                
+            </table>
         </div>
     </div>
-</x-app-layout>
+@endsection

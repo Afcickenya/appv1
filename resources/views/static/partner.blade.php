@@ -7,8 +7,13 @@
             <div class="col-md-6 padding-15">
                 <div class="contact-info">
                     <h2>Join Us Today</h2>
+                    @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{session()->get('message')}}
+                    </div>
+                @endif
                     <p>
-
+                              ...
                     </p>
                     <h3>
                         Section 9, Thika,
@@ -20,24 +25,64 @@
             </div>
             <div class="col-md-6 padding-15">
                 <div class="contact-form">
-                    <form action="http://html.dynamiclayers.net/at/indico/contact.php" method="post" id="ajax_form" class="form-horizontal">
+                    <form action="/Partner/create" method="post" id="ajax_form" class="form-horizontal">
+                        @csrf
                         <div class="form-group colum-row row">
                             <div class="col-sm-6">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="{{old('name')?? 'Enter full name'}}" >
                             </div>
+                            @error('name')
+                                <p class="text-danger">
+                                    {{$message}}
+                                </p>
+                            @enderror
                             <div class="col-sm-6">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="{{old('name')?? 'Enter email'}}" >
                             </div>
+                            @error('email')
+                               <p class="text-danger">
+                                {{$message}}
+                               </p>
+                          @enderror
+                        </div>
+                        <div class="form-group colum-row row">
+                            <div class="col-sm-6">
+                                <input type="text" id="phone" name="phone" class="form-control" placeholder="{{old('phone')?? 'Enter phone Number'}}" >
+                            </div>
+                            @error('phone')
+                                <p class="text-danger">
+                                    {{$message}}
+                                </p>
+                            @enderror
+                            <div class="col-sm-6">
+                                <input type="text" id="country" name="country" class="form-control" placeholder="{{old('country')?? 'Enter your country'}}" >
+                            </div>
+                            @error('country')
+                               <p class="text-danger">
+                                {{$message}}
+                               </p>
+                          @enderror
+                        </div>
+                      
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label for="">Enter detailed message About Yourself</label>
+                                <textarea id="message" name="body" cols="30" rows="5" class="form-control message" placeholder="{{old('body') ?? 'Enter detail information about yourself'}}"  >
+                                  
+                                </textarea>
+                            </div>
+                            @error('body')
+                                <p class="text-danger">
+                                    {{$message}}
+                                </p>
+                            @enderror
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <textarea id="message" name="message" cols="30" rows="5" class="form-control message" placeholder="Message" required></textarea>
+                                <button id="submit" class="default-btn" type="submit">Partner With Us now</button>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <button id="submit" class="default-btn" type="submit">Become a partner</button>
-                            </div>
+                           
                         </div>
                         <div id="form-messages" class="alert" role="alert"></div>
                     </form>

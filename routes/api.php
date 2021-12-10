@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+/*
+Consumer Key: 7eAKKlIcU4tPz13EPW6ZfPyCYKHKPHyt
+Consumer Secret: I7nOr3pfQGP8OrhN
+Created On: Thu, 9th of Dec 2021 at 17:26:30 pm
+
+*/

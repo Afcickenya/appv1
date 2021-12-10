@@ -7,7 +7,12 @@ use App\Http\Controllers\static\StaticController;
 use App\Http\Controllers\center\CentersController;
 use App\Http\Controllers\team\TeamsController;
 use App\Http\Controllers\donate\DonationController;
-
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\volunteer\VolunteersController;
+use App\Http\Controllers\contact\ContactController;
+use App\Http\Controllers\partner\PartnersController;
+use App\Http\Controllers\post\PostsController;
+use App\Http\Controllers\MpesaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +25,8 @@ use App\Http\Controllers\donate\DonationController;
 */
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/addstaff', [AdminController::class, 'addstaff'])->name('addstaff');
+
 
 //Youn
 Route::get('/Young-friends', [FriendsController::class, 'index'])->name('young');
@@ -38,6 +45,7 @@ Route::get('/Friends/Lilian', [FriendsController::class, 'Lilian'])->name('Lilia
 //centers
 //Donations
 Route::get('/Donate', [DonationController::class, 'index'])->name('Donation');
+Route::get('/Donate/show', [DonationController::class, 'show'])->name('Donation.show');
 //team
 Route::get('/Our-Team', [TeamsController::class, 'index'])->name('Our-Team');
 Route::get('/Our-Team/john-muiruri', [TeamsController::class, 'john'])->name('john');
@@ -60,6 +68,12 @@ Route::get('/Climate', [StaticController::class, 'Climate'])->name('Climate');
 Route::get('/About-afcic', [StaticController::class, 'About'])->name('about');
 Route::get('/Partner-with-us', [StaticController::class, 'Partner'])->name('partner');
 Route::get('/Volunteer', [StaticController::class, 'Volunteer'])->name('volunteer');
+//create volunteer  middleware auth
+Route::post('/volunteer/create', [VolunteersController::class, 'create'])->name('volunteercreate');
+Route::get('/volunteer/show', [VolunteersController::class, 'show'])->name('volunteer.show');
+//contact
+Route::post('/Contact/create', [ContactController::class, 'create'])->name('contact.create');
+Route::get('/Contact/show', [ContactController::class, 'show'])->name('volunteer.show');
 
 //auth route for both 
 Route::group(['middleware' => ['auth']], function() { 
@@ -75,5 +89,12 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 Route::group(['middleware' => ['auth', 'role:blogwriter']], function() { 
     Route::get('/dashboard/postcreate', 'App\Http\Controllers\DashboardController@postcreate')->name('dashboard.postcreate');
 });
+//partners
+Route::post('/Partner/create', [PartnersController::class, 'create'])->name('partner.create');
+Route::get('/Partner/show', [PartnersController::class, 'show'])->name('partner.show');
+
+Route::get('/Mpesa', [MpesaController::class, 'stkSimulation'])->name('stkpush');
+//posts
+Route::resource('/Blog', PostsController::class);
 
 require __DIR__.'/auth.php';

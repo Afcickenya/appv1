@@ -176,6 +176,7 @@
     </div>
 </section>
 <!---end  Who we are area--->
+
 <!---galleryg-->
 <section class="team-section bg-gray padding">
     <div class="dots"></div>
@@ -305,7 +306,7 @@
     </div>
 </section>
 
-<section class="counter-section padding">
+<!--<section class="counter-section padding">
     <div class="container">
         <div class="row counter-wrap">
             <div class="col-lg-3 col-sm-6 padding-15">
@@ -334,13 +335,14 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!--action--->
 <section class="content-section padding">
     <div class="container">
         <div class="row content-wrap">
             <div class="col-lg-6 sm-padding wow fadeInLeft" data-wow-delay="100ms">
-                <img class="box-shadow" class="box-shadow" src="img/content-1.jpg" alt="img">
+               <!-- <img class="box-shadow" class="box-shadow" src="img/content-1.jpg" alt="img">-->
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/7jdUGCxX7-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="col-lg-6 sm-padding">
                 <div class="content-info wow fadeInRight" data-wow-delay="300ms">

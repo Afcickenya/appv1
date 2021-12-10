@@ -21,4 +21,5 @@ class CentersController extends Controller
     {
       return view('center.rescue');
     }
+    
 }
